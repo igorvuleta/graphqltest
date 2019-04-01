@@ -6,6 +6,7 @@ import random from "lodash.random";
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
 import db from "./models";
+import cors from "cors";
 
 const server = new ApolloServer({
   typeDefs: gql(typeDefs),
@@ -15,23 +16,31 @@ const server = new ApolloServer({
 
 const app = express();
 server.applyMiddleware({ app });
+app.use(cors());
 
-app.use(express.static("app/public"));
+app.use(
+  '/graphql',
+  graphql({
+      schema: schema,
+      graphiql: true
+  })
+);
+
 
 db.sequelize.sync().then(() => {
   // populate author table with dummy data
   db.author.bulkCreate(
-    times(10, () => ({
+    times(20, () => ({
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName()
     }))
   );
   // populate post table with dummy data
   db.post.bulkCreate(
-    times(10, () => ({
+    times(20, () => ({
       title: faker.lorem.sentence(),
       content: faker.lorem.paragraph(),
-      authorId: random(1, 10)
+      authorId: random(1, 20)
     }))
   );
 
