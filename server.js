@@ -16,15 +16,8 @@ const server = new ApolloServer({
 
 const app = express();
 server.applyMiddleware({ app });
-app.use(cors());
 
-app.use(
-  '/graphql',
-  graphql({
-      schema: schema,
-      graphiql: true
-  })
-);
+app.use(cors());
 
 
 db.sequelize.sync().then(() => {
