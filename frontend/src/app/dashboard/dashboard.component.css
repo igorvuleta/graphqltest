@@ -6,3 +6,8 @@ mat-card {
 mat-sidenav-content {
     overflow: hidden;
 }
+mat-spinner {
+    margin: 0 auto;
+    height: 2em;
+    width: 2em;
+}

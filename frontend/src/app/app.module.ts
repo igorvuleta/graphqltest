@@ -45,13 +45,17 @@ import {MatAutocompleteModule,
   MatTooltipModule,
   MatTreeModule,} from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DeleteButtonComponent } from './delete-button/delete-button.component';
+import { AddDataComponent } from './add-data/add-data.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    DeleteButtonComponent,
+    AddDataComponent
   ],
   imports: [
     BrowserModule,

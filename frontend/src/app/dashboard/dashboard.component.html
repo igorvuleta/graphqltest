@@ -1,5 +1,5 @@
 <div *ngIf="loading">
-    Loading...
+    <mat-spinner *ngIf="loading"[diameter]="30"></mat-spinner>
   </div>
   <div *ngIf="error">
     Error :(
@@ -14,7 +14,7 @@
           <p>{{ post.content }}</p>
         </mat-card-content>
         <mat-card-footer>
-          <p>{{ post.author.firstName }} {{ post.author.lastName }}</p>
+          <p>{{ post.author.firstName }} {{ post.author.lastName }}
         </mat-card-footer>
       </mat-card>
     </div>

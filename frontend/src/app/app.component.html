@@ -1,13 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar>
-  <button
-    mat-icon-button
-    (click)="sidenav.toggle()"
-  >
+  <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  GQL Test </mat-toolbar
->
+  GQL Test
+</mat-toolbar>
 <mat-sidenav-container style="height: calc(100% - 64px); margin: 0;">
   <mat-sidenav
     #sidenav
@@ -16,15 +13,12 @@
     style="width: 240px"
   >
     <mat-nav-list>
-      <mat-list-item routerLink="dashboard"
-        ><mat-icon>dashboard</mat-icon>Dashboard</mat-list-item
+      <mat-list-item routerLink="dashboard"><mat-icon>dashboard</mat-icon>Dashboard</mat-list-item
       >
-     
+      <mat-list-item routerLink="addpost"><mat-icon>add</mat-icon>Add Data</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-      
-        <router-outlet></router-outlet>
-</mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-

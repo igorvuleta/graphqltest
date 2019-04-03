@@ -12,6 +12,7 @@ export class DashboardComponent {
   posts: any[];
   loading = true;
   error: any;
+  
 
   constructor(private apollo:Apollo) {
 
@@ -41,5 +42,28 @@ export class DashboardComponent {
         console.log(this.posts);
         
       })
+  }
+
+  DeletePost(id:number) {
+    const DeletePostMutation = gql`
+      mutation DeletePost($id: Int!) {
+        deletePost(id: $id)
+      }
+    `;
+    this.apollo
+      .mutate({
+        mutation: DeletePostMutation,
+        variables: {
+          id:id
+        }
+      })
+      .subscribe(
+        ({ data }) => {
+          console.log("deleted", data);
+        },
+        error => {
+          console.log("there was a error", error);
+        }
+      );
   }
 }
