@@ -1,0 +1,8 @@
+
+mat-card {
+    margin: 1%;
+    padding: 5%;
+}
+mat-sidenav-content {
+    overflow: hidden;
+}

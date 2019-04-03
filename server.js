@@ -23,14 +23,14 @@ app.use(cors());
 db.sequelize.sync().then(() => {
   // populate author table with dummy data
   db.author.bulkCreate(
-    times(20, () => ({
+    times(1000, () => ({
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName()
     }))
   );
   // populate post table with dummy data
   db.post.bulkCreate(
-    times(20, () => ({
+    times(1000, () => ({
       title: faker.lorem.sentence(),
       content: faker.lorem.paragraph(),
       authorId: random(1, 20)
